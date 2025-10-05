@@ -30,3 +30,52 @@ All of the analysis can be found in the notebook:
 
 - https://github.com/FavioVazquez/fake-news/blob/master/FakeNews.ipynb
 
+## 🚀 Streamlit Web Application
+
+### Local Setup & Running
+
+1. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Run the app:**
+   ```bash
+   streamlit run app.py
+   ```
+
+3. **Open browser at:** `http://localhost:8501`
+
+### Deploy on Streamlit Cloud
+
+1. **Push your changes to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Add Streamlit deployment"
+   git push origin master
+   ```
+
+2. **Deploy:**
+   - Go to [share.streamlit.io](https://share.streamlit.io)
+   - Sign in with GitHub
+   - Click "New app"
+   - Select your repository
+   - Set main file: `app.py`
+   - Click "Deploy"
+
+### ⚠️ Important Notes
+
+- The model was trained on **political news from 2016-2017**
+- Works best on political articles
+- May not generalize well to science, tech, or entertainment news
+- Use political news examples for best results
+- See `POLITICAL_NEWS_EXAMPLES.md` for test examples
+
+### Model Performance
+
+- **Accuracy:** 99.77% (on test data)
+- **Model:** Random Forest Classifier
+- **Features:** TF-IDF vectorized text
+- **Training Data:** 44,898 political articles
+
+

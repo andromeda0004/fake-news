@@ -3,6 +3,14 @@ import joblib
 import pandas as pd
 import string
 from pathlib import Path
+import nltk
+from nltk.corpus import stopwords
+
+# Download stopwords on first run
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords', quiet=True)
 
 # Page configuration
 st.set_page_config(
@@ -39,6 +47,10 @@ def preprocess_text(text):
     
     # Remove punctuation
     text = ''.join([char for char in text if char not in string.punctuation])
+    
+    # Remove stopwords (critical - matches training preprocessing)
+    stop = stopwords.words('english')
+    text = ' '.join([word for word in text.split() if word not in stop])
     
     return text
 
@@ -120,6 +132,19 @@ with col2:
     3. Remove stopwords
     4. Vectorize and transform
     5. Classify
+    """)
+    
+    st.warning("""
+    ⚠️ **Model Limitations:**
+    
+    This model was trained primarily on **political news** from 2016-2017. 
+    It works best on political articles and may not generalize well to:
+    - Science/Technology news
+    - Sports news
+    - Entertainment news
+    - Recent events (post-2017)
+    
+    For best results, use political news articles.
     """)
     
     st.subheader("📝 Example Usage")
