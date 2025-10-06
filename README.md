@@ -24,12 +24,6 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset
 
 There are two files, one for real news and one for fake news (both in English) with a total of 23481 "fake" tweets and 21417 "real" articles.
 
-## The analysis
-
-All of the analysis can be found in the notebook:
-
-- https://github.com/FavioVazquez/fake-news/blob/master/FakeNews.ipynb
-
 ## 🚀 Streamlit Web Application
 
 ### Local Setup & Running
